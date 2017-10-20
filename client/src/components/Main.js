@@ -2,6 +2,7 @@ import React from 'react'
 // import { Switch, Route } from 'react-router-dom'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import TimesContainer from './TimesContainer'
+import SavedArticles from './SavedArticles'
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -11,6 +12,7 @@ import TimesContainer from './TimesContainer'
 const Main = () => (
     <Switch>
 		<Route exact path='/' component={TimesContainer}/>
+		<Route exact path="/savedarticles" component={SavedArticles}/>
     </Switch>
 )
 

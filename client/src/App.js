@@ -8,9 +8,6 @@ const App = () => (
 	<Router>
 		<div>
 			<TopNav />
-			{/* <Switch>
-				<Route exact path="/" component={TimesContainer} />
-			</Switch> */}
 			<Main />
 		</div>
 	</Router>

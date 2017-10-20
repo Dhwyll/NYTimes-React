@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import Jumbotron from "./Jumbotron/Jumbotron.js";
 import GetArticles from "../utils/GetArticles.js";
-import Search from "./Search/Search.js";
 import '../App.css';
 
 
-class TimesContainer extends Component {
+class SavedArticles extends Component {
 
 	state = {
 		subject: "",
@@ -53,17 +52,7 @@ class TimesContainer extends Component {
 		return (
 			<div className = "container">
 				<div className="App">
-					<Jumbotron children={"New York Times Article Search"} />
-					<div className = "row">
-					<Search
-						query={this.state.query}
-						start_date={this.state.start_date}
-						end_date={this.state.end_date}
-						handleInputChange={this.handleInputChange}
-						handleFormSubmit={this.handleFormSubmit}
-					/>
-					</div>
-					<br />
+					<Jumbotron children={"Saved Articles"} />
 					<div className="row">
 					{this.state.articles.map(info => (
 						info.snippet &&
@@ -76,7 +65,7 @@ class TimesContainer extends Component {
 									{info.snippet}
 								</div>
 								<div>
-									<button onClick={() => this.showAlert({info})}>Save Article</button>
+									<button onClick={() => this.showAlert({info})}>Unsave</button>
 								</div>
 							</div>
 						</div>
@@ -88,4 +77,4 @@ class TimesContainer extends Component {
 	}
 }
 
-export default TimesContainer;
+export default SavedArticles;
