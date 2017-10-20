@@ -4,6 +4,7 @@ import GetArticles from "../utils/GetArticles.js";
 import Search from "./Search/Search.js";
 import '../App.css';
 
+
 class TimesContainer extends Component {
 
 	state = {
@@ -51,37 +52,37 @@ class TimesContainer extends Component {
 		if (!this.state.articles) return <p>Loading...</p>
 		return (
 			<div className = "container">
-			<div className="App">
-				<Jumbotron children={"New York Times Article Search"} />
-				<div className = "row">
-				<Search
-					query={this.state.query}
-					start_date={this.state.start_date}
-					end_date={this.state.end_date}
-					handleInputChange={this.handleInputChange}
-					handleFormSubmit={this.handleFormSubmit}
-				/>
-				</div>
-				<br />
-				<div className="row">
-				{this.state.articles.map(info => (
-					info.snippet &&
+				<div className="App">
+					<Jumbotron children={"New York Times Article Search"} />
 					<div className = "row">
-						<div className = "panel panel-default">
-							<div className = "panel-heading">
-								<h3 className = "panel-title"><a href={info.web_url} target="_blank">{info.headline.main}</a></h3>
-							</div>
-							<div className = "panel-body">
-								{info.snippet}
-							</div>
-							<div>
-								<button onClick={() => this.showAlert({info})}>Show Alert</button>
+					<Search
+						query={this.state.query}
+						start_date={this.state.start_date}
+						end_date={this.state.end_date}
+						handleInputChange={this.handleInputChange}
+						handleFormSubmit={this.handleFormSubmit}
+					/>
+					</div>
+					<br />
+					<div className="row">
+					{this.state.articles.map(info => (
+						info.snippet &&
+						<div className = "row">
+							<div className = "panel panel-default">
+								<div className = "panel-heading">
+									<h3 className = "panel-title"><a href={info.web_url} target="_blank">{info.headline.main}</a></h3>
+								</div>
+								<div className = "panel-body">
+									{info.snippet}
+								</div>
+								<div>
+									<button onClick={() => this.showAlert({info})}>Show Alert</button>
+								</div>
 							</div>
 						</div>
+					))}
 					</div>
-				))}
 				</div>
-			</div>
 			</div>
 		)
 	}
