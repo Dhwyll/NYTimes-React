@@ -1,43 +1,9 @@
-# Create React Express App
+# NYTimes-React
 
-## About This Boilerplate
+## About This App
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+This app is an example of using React.  It uses the New York Times API to allow users to search for articles based upon a subject and between certain years.  It then lists the top 10 articles found and allows the user to save them for later.  By clicking on Saved Articles, the user can see which articles have been saved.  From there, they can delete the articles from the saved list.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+## Incomplete
 
-## Starting the app locally
-
-Start by installing front and backend dependencies. While in this directory, run the following commands:
-
-```
-yarn install
-cd client
-yarn install
-cd ..
-``
-
-After both installations complete, run the following command in your terminal:
-
-```
-yarn start
-```
-
-That's it, your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Deployment (Heroku)
-
-After confirming that you have an up to date git repository and a Heroku app created, complete the following:
-
-1. Build the React app for production by running the following command:
-
-```
-yarn build
-```
-> Note: A yarn build will be required to register any new Post requests from any front-end JavaScript to to prevent any proxy server errors.
-
-2. Add and commit all changes to git
-
-3. Push to Heroku
-
-If all previous steps were followed correctly, your application should be deployed to Heroku!
+Currently, this app is incomplete.  It does allow the user to search for articles and save them.  It also allows the user to view the saved article page.  However at this time, the saved article page does not display the saved articles nor is there a way to delete them.
