@@ -71,24 +71,25 @@ class SavedArticles extends Component {
 					<div className="App">
 						<Jumbotron children={"Saved Articles"} />
 						<div className="row">
-						{this.state.articles.map(info => (
-							info.snippet &&
-							<div className = "row">
-								<div className = "panel panel-default">
-									<div className = "panel-heading">
-										<h3 className = "panel-title"><a href={info.url} target="_blank">{info.headline}</a></h3>
-									</div>
-									<div className = "panel-body">
-										{info.snippet}
-										<br />
-										<br />
-										<div>
-											<button className="btn btn-primary" onClick={() => this.deleteArticle({info})}>Unsave</button>
+							<div className="col-sm-12">
+								{this.state.articles.map(info => (
+									<div className = "row">
+										<div className = "panel panel-default">
+											<div className = "panel-heading">
+												<h3 className = "panel-title"><a href={info.url} target="_blank">{info.headline}</a></h3>
+											</div>
+											<div className = "panel-body">
+												{info.snippet}
+												<br />
+												<br />
+												<div>
+													<button className="btn btn-primary" onClick={() => this.deleteArticle({info})}>Unsave</button>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
+								))}
 							</div>
-						))}
 						</div>
 					</div>
 				</div>
@@ -101,19 +102,21 @@ class SavedArticles extends Component {
 						<div className="App">
 							<Jumbotron children={"Saved Articles"} />
 							<div className="row">
-							{this.state.articles.map(info => (
-								info.snippet &&
-								<div className = "row">
-									<div className = "panel panel-default">
-										<div className = "panel-heading">
-											<h3 className = "panel-title"><a href={info.url} target="_blank">{info.headline}</a></h3>
+								<div className="col-sm-12">
+									{this.state.articles.map(info => (
+										info.snippet &&
+										<div className = "row">
+											<div className = "panel panel-default">
+												<div className = "panel-heading">
+													<h3 className = "panel-title"><a href={info.url} target="_blank">{info.headline}</a></h3>
+												</div>
+												<div className = "panel-body">
+													{info.snippet}
+												</div>
+											</div>
 										</div>
-										<div className = "panel-body">
-											{info.snippet}
-										</div>
-									</div>
+									))}
 								</div>
-							))}
 							</div>
 						</div>
 					</div>

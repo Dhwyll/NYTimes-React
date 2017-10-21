@@ -84,31 +84,36 @@ class TimesContainer extends Component {
 					<div className="App">
 						<Jumbotron children={"New York Times Article Search"} />
 						<div className = "row">
-						<Search
-							query={this.state.query}
-							start_date={this.state.start_date}
-							end_date={this.state.end_date}
-							handleInputChange={this.handleInputChange}
-							handleFormSubmit={this.handleFormSubmit}
-						/>
+							<div className = "col-sm-12">
+								<Search
+									query={this.state.query}
+									start_date={this.state.start_date}
+									end_date={this.state.end_date}
+									handleInputChange={this.handleInputChange}
+									handleFormSubmit={this.handleFormSubmit}
+								/>
+							</div>
 						</div>
 						<br />
 
 						{/* Run the article list and create panels for each article */}
 						<div className="row">
 						{this.state.articles.map(info => (
+							// No blank snippets
 							info.snippet &&
 							<div className = "row">
-								<div className = "panel panel-default">
-									<div className = "panel-heading">
-										<h3 className = "panel-title"><a href={info.web_url} target="_blank">{info.headline.main}</a></h3>
-									</div>
-									<div className = "panel-body">
-										{info.snippet}
-										<br />
-										<br />
-										<div>
-											<button className="btn btn-primary" onClick={() => this.saveArticle({info})}>Save Article</button>
+								<div className="col-sm-12">
+									<div className = "panel panel-default">
+										<div className = "panel-heading">
+											<h3 className = "panel-title"><a href={info.web_url} target="_blank">{info.headline.main}</a></h3>
+										</div>
+										<div className = "panel-body">
+											{info.snippet}
+											<br />
+											<br />
+											<div>
+												<button className="btn btn-primary" onClick={() => this.saveArticle({info})}>Save Article</button>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -126,31 +131,36 @@ class TimesContainer extends Component {
 						<div className="App">
 							<Jumbotron children={"New York Times Article Search"} />
 							<div className = "row">
-							<Search
-								query={this.state.query}
-								start_date={this.state.start_date}
-								end_date={this.state.end_date}
-								handleInputChange={this.handleInputChange}
-								handleFormSubmit={this.handleFormSubmit}
-							/>
+								<div className = "col-sm-12">
+									<Search
+										query={this.state.query}
+										start_date={this.state.start_date}
+										end_date={this.state.end_date}
+										handleInputChange={this.handleInputChange}
+										handleFormSubmit={this.handleFormSubmit}
+									/>
+								</div>
 							</div>
 							<br />
 	
 							{/* Run the article list and create panels for each article */}
 							<div className="row">
-							{this.state.articles.map(info => (
-								info.snippet &&
-								<div className = "row">
-									<div className = "panel panel-default">
-										<div className = "panel-heading">
-											<h3 className = "panel-title"><a href={info.web_url} target="_blank">{info.headline.main}</a></h3>
+								<div className = "col-sm-12">
+									{this.state.articles.map(info => (
+										// No blank snippets
+										info.snippet &&
+										<div className = "row">
+											<div className = "panel panel-default">
+												<div className = "panel-heading">
+													<h3 className = "panel-title"><a href={info.web_url} target="_blank">{info.headline.main}</a></h3>
+												</div>
+												<div className = "panel-body">
+													{info.snippet}
+												</div>
+											</div>
 										</div>
-										<div className = "panel-body">
-											{info.snippet}
-										</div>
-									</div>
+									))}
 								</div>
-							))}
 							</div>
 						</div>
 					</div>
