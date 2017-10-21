@@ -101,21 +101,23 @@ class SavedArticles extends Component {
 					<div className = "container">
 						<div className="App">
 							<Jumbotron children={"Saved Articles"} />
-							<div className="row">
-								<div className="col-sm-12">
-									{this.state.articles.map(info => (
-										info.snippet &&
-										<div className = "row">
-											<div className = "panel panel-default">
-												<div className = "panel-heading">
-													<h3 className = "panel-title"><a href={info.url} target="_blank">{info.headline}</a></h3>
-												</div>
-												<div className = "panel-body">
-													{info.snippet}
+							<div className = "container">
+								<div className="row">
+									<div className="col-sm-12">
+										{this.state.articles.map(info => (
+											info.snippet &&
+											<div className = "row">
+												<div className = "panel panel-default">
+													<div className = "panel-heading">
+														<h3 className = "panel-title"><a href={info.url} target="_blank">{info.headline}</a></h3>
+													</div>
+													<div className = "panel-body">
+														{info.snippet}
+													</div>
 												</div>
 											</div>
-										</div>
-									))}
+										))}
+									</div>
 								</div>
 							</div>
 						</div>
