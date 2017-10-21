@@ -101,9 +101,9 @@ class SavedArticles extends Component {
 					<div className = "container">
 						<div className="App">
 							<Jumbotron children={"Saved Articles"} />
-							<div className = "container">
+							<div className="container">
 								<div className="row">
-									<div className="col-sm-12">
+									<div className = "col-sm-12">
 										{this.state.articles.map(info => (
 											info.snippet &&
 											<div className = "row">
