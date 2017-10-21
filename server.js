@@ -35,25 +35,45 @@ mongoose.connect(db, function(error) {
 	}
 });
 
-app.post("/saved", function(req, res) {
-	res.json(true);
 
+// Saving an article
+app.post("/saved", function(req, res) {
+
+	// Pull the approrpiate information to store.
 	let articleInfo = {};
 
 	articleInfo.headline = req.body.info.headline.main;
 	articleInfo.url = req.body.info.web_url;
 	articleInfo.snippet = req.body.info.snippet;
-	console.log("new savedArticle is", savedArticle);
 
+	// Create a new etnry for the database based off the Schema
 	let entry = new savedArticle(articleInfo);
 
+	// Save the entry into the database.
 	entry.save(function(err, doc) {
 		if (err) {
 			console.log(err);
 		}
-			else {
-				console.log(doc);
-			}
+	});
+});
+
+// Retrieve the saved articles
+app.get("/getSaved", function(req, res) {
+	savedArticle.find({}, function(err, articles) {
+		if (err) throw err;
+		res.json(articles);
+	});
+});
+
+// Delete an article
+app.post("/deleteArticle", function(req, res) {
+	// First, find the article and remove it
+	savedArticle.findByIdAndRemove(req.body.info._id, (err, article) => {
+		// Then get the list of articles remaining and send that back
+		savedArticle.find({}, function(err, articles) {
+			if (err) throw err;
+			res.json(articles);
+		});
 	});
 });
 

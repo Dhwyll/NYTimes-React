@@ -20,6 +20,18 @@ export default {
 		return axios.post("/saved", article).then((data)=>{
 			return data;
 		});
+	},
+
+	getSavedArticles: function() {
+		return axios.get("/getSaved").then((articles) => {
+			return articles;
+		});
+	},
+
+	deleteArticle: function(article) {
+		return axios.post("/deleteArticle", article).then((data)=>{
+			return data;
+		});
 	}
 };
 

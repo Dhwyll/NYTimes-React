@@ -11,7 +11,10 @@ import SavedArticles from './SavedArticles'
 // when the pathname is exactly the string "/"
 const Main = () => (
     <Switch>
+		{/* The home page */}
 		<Route exact path='/' component={TimesContainer}/>
+
+		{/* The saved articles page */}
 		<Route exact path="/savedarticles" component={SavedArticles}/>
     </Switch>
 )
